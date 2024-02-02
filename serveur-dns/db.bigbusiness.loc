@@ -1,0 +1,25 @@
+$TTL 86400
+@   IN  SOA dns.bigbusiness.loc. admin.bigbusiness.loc. (
+        2024012801  ; Serial
+        3600        ; Refresh
+        1800        ; Retry
+        604800      ; Expire
+        86400       ; Negative Cache TTL
+)
+
+; Serveur DNS
+@       IN  NS  dns.bigbusiness.loc.
+
+; Enregistrements A
+hacker  IN  A   192.168.10.2
+dns     IN  A   192.168.10.6
+web     IN  A   192.168.10.3
+pc-01   IN  A   192.168.10.4
+mail    IN  A   192.168.10.20
+glpi    IN  A   192.168.10.30
+
+; Mail
+@       IN  MX  10 mail.bigbusiness.loc.
+
+; Enregistrement TXT
+note    IN  TXT "lab{D1sc0v3r3d_DNS_L3ak}"

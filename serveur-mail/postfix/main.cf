@@ -1,0 +1,15 @@
+myhostname = mail.bigbusiness.loc
+mydomain = bigbusiness.loc
+myorigin = $mydomain
+inet_interfaces = all
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+virtual_alias_maps = hash:/etc/postfix/virtual
+virtual_mailbox_domains = $mydomain
+# Autorise l'Open Relay
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+mynetworks = 0.0.0.0/0
+smtpd_recipient_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+# Activation des commandes VRFY et RCPT TO sans restriction
+disable_vrfy_command = no
+smtpd_delay_reject = no
+smtpd_client_restrictions = permit

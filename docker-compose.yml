@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+  kali:
+    build:
+      context: kali-hacker
+      dockerfile: Dockerfile
+    hostname: hacker.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.2
+    ports:
+      - "2222:22"
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+    volumes:
+      - ./kali_ssh:/root/.ssh
+    command: "/usr/sbin/sshd -D -e"
+
+  debian_web:
+    build:
+      context: serveur-web
+      dockerfile: Dockerfile
+    hostname: intranet.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.3
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
+  dns_server:
+    build:
+      context: serveur-dns
+      dockerfile: Dockerfile
+    hostname: dns.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.6
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
+  ubuntu_client:
+    build:
+      context: ubuntu-client
+      dockerfile: Dockerfile
+    hostname: pc-01.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.4
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
+  serveur_glpi:
+    build:
+      context: serveur-glpi
+      dockerfile: Dockerfile
+    hostname: glpi.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.30
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
+  mail_server:
+    build:
+      context: serveur-mail
+      dockerfile: Dockerfile
+    hostname: mail.bigbusiness.loc
+    environment:
+      - DOMAINNAME=bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.20
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
+networks:
+  custom_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24
+          gateway: 192.168.10.1
