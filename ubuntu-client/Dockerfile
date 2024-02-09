@@ -20,7 +20,7 @@ COPY check_mail.sh /check_mail.sh
 RUN chmod +x /check_mail.sh
 
 # Configuration de cron pour exécuter l'auth WEB toutes les 2mn et les mails toutes les 5mn
-RUN echo "*/2 * * * * /auth.sh \$USERNAME \$PASSWORD" > /etc/cron.d/auth-cron
+RUN echo "*/2 * * * * /auth.sh $USERNAME $PASSWORD" > /etc/cron.d/auth-cron
 RUN echo "*/5 * * * * /send_mail.sh" >> /etc/cron.d/auth-cron
 RUN echo "* * * * * /check_mail.sh" >> /etc/cron.d/auth-cron
 RUN chmod 0644 /etc/cron.d/auth-cron
