@@ -12,7 +12,7 @@ cleanup() {
 trap cleanup SIGINT
 
 # Démarrage : 
-docker compose up -d
+docker compose up -d --build
 
 # Fonction pour afficher l'état des conteneurs avec format personnalisé
 show_containers_status() {
