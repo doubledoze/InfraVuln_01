@@ -1,3 +1,4 @@
+#!/bin/bash
 # Chemin du fichier qui stocke l'index actuel
 INDEX_FILE="index_file.txt"
 
