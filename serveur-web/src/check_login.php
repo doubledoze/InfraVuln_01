@@ -14,7 +14,7 @@ if ($username == $envUsername && $password == $envPassword) {
     } elseif ($ipSource == $ipHacker) {
         echo "Bienvenue Hacker, voici le flag lab{H4ck3d_W3b_S3rv1ce}";
     } else {
-        echo "Authentification réussie, mais votre IP n'est pas reconnue.";
+        echo "Authentification réussie, mais vous ne vous connectez pas du bon réseau.";
     }
 } else {
     echo "Échec d'authentification";
