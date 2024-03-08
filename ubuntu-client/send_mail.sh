@@ -3,9 +3,9 @@
 INDEX_FILE="index_file.txt"
 
 # Liste des sujets
-subjects=("Coucou bebew" "Stp réponds moi" "Alors ???")
+subjects=("Hello" "Stp réponds moi" "Alors ???")
 # Liste des corps de message
-messages=("Bah alors tu me réponds plus ?" "Allez stp, je m'ennuie à la compta..." "Tu viens ce soir après le taf??")
+messages=("Bah alors tu me réponds plus ?" "Allez stp, je m'ennuie à la compta..." "On va boire un coup après le taf??")
 
 # Lire l'index à partir du fichier, si le fichier n'existe pas, utiliser 0
 if [ -f "$INDEX_FILE" ]; then
