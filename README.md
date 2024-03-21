@@ -40,10 +40,10 @@ Bon on est pas mal, vous avez normalement **compromis un compte de messagerie**,
 
 Quel est le prénom du propriétaire de la boite que vous avez compromise ?
 
-Retournons sur la phase d'énumération, vous avez potentiellement identifié un serveur de stockage utilisant Samba, il y a deux flags à trouver sur ce serveur.
+Retournons sur la phase d'énumération, vous avez potentiellement identifié un serveur de stockage utilisant Samba, il y a deux flags à trouver sur ce serveur. Et un autre sur le serveur-web (ça dépend si vous avez trouvé la vuln ou pas...)
 
 Bien joué ! C'est fini. Documentez l'ensemble de votre démarche et vos trouvailles dans un document, c'est votre **write-up**.
 
 **Résultat final :**
 Deux identifiants/pass
-Six flags
+Sept flags
