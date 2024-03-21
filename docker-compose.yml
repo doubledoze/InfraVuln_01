@@ -5,6 +5,7 @@ services:
     build:
       context: kali-hacker
       dockerfile: Dockerfile
+    container_name: hacker.bigbusiness.loc
     hostname: hacker.bigbusiness.loc
     networks:
       custom_network:
@@ -22,6 +23,7 @@ services:
     build:
       context: serveur-web
       dockerfile: Dockerfile
+    container_name: intranet.bigbusiness.loc
     hostname: intranet.bigbusiness.loc
     networks:
       custom_network:
@@ -30,10 +32,24 @@ services:
       - 192.168.10.6
       - 8.8.8.8
 
+  debian_stockage:
+    build:
+      context: serveur-stockage
+      dockerfile: Dockerfile
+    container_name: stockage.bigbusiness.loc
+    hostname: stockage.bigbusiness.loc
+    networks:
+      custom_network:
+        ipv4_address: 192.168.10.10
+    dns:
+      - 192.168.10.6
+      - 8.8.8.8
+
   dns_server:
     build:
       context: serveur-dns
       dockerfile: Dockerfile
+    container_name: dns.bigbusiness.loc
     hostname: dns.bigbusiness.loc
     networks:
       custom_network:
@@ -46,6 +62,7 @@ services:
     build:
       context: ubuntu-client
       dockerfile: Dockerfile
+    container_name: pc-01.bigbusiness.loc
     hostname: pc-01.bigbusiness.loc
     networks:
       custom_network:
@@ -58,6 +75,7 @@ services:
     build:
       context: serveur-glpi
       dockerfile: Dockerfile
+    container_name: glpi.bigbusiness.loc
     hostname: glpi.bigbusiness.loc
     networks:
       custom_network:
@@ -70,6 +88,7 @@ services:
     build:
       context: serveur-mail
       dockerfile: Dockerfile
+    container_name: mail.bigbusiness.loc
     hostname: mail.bigbusiness.loc
     environment:
       - DOMAINNAME=bigbusiness.loc

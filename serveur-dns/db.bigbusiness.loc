@@ -17,6 +17,7 @@ web     IN  A   192.168.10.3
 pc-01   IN  A   192.168.10.4
 mail    IN  A   192.168.10.20
 glpi    IN  A   192.168.10.30
+stockage IN A	192.168.10.10
 
 ; Mail
 @       IN  MX  10 mail.bigbusiness.loc.
