@@ -45,5 +45,4 @@ Retournons sur la phase d'énumération, vous avez potentiellement identifié un
 Bien joué ! C'est fini. Documentez l'ensemble de votre démarche et vos trouvailles dans un document, c'est votre **write-up**.
 
 **Résultat final :**
-Deux identifiants/pass
-Sept flags
+Deux identifiants/pass et sept flags
